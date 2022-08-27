@@ -7,10 +7,10 @@ import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import Payment from './pages/Payment/Payment';
 import StartContestPage from './pages/StartContestPage/StartContestPage';
 import Dashboard from './pages/Dashboard/Dashboard';
-import PrivateHoc from './components/PrivateHoc/PrivateHoc';
+import PrivateHoc from './components/HOCs/WithPrivate';
 import NotFound from './components/NotFound/NotFound';
 import Home from './pages/Home/Home';
-import OnlyNotAuthorizedUserHoc from './components/OnlyNotAuthorizedUserHoc/OnlyNotAuthorizedUserHoc';
+
 import ContestPage from './pages/ContestPage/ContestPage';
 import UserProfile from './pages/UserProfile/UserProfile';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,6 +18,8 @@ import ContestCreationPage from './pages/ContestCreation/ContestCreationPage';
 import CONSTANTS from './constants';
 import browserHistory from './browserHistory';
 import ChatContainer from './components/Chat/ChatComponents/ChatContainer/ChatContainer';
+import {WithPrivate, WithNotPrivate} from "./components/HOCs"
+import PricingPage from './pages/PricingPage';
 
 class App extends Component {
   render() {
@@ -36,10 +38,11 @@ class App extends Component {
         />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={OnlyNotAuthorizedUserHoc(LoginPage)} />
-          <Route exact path="/registration" component={OnlyNotAuthorizedUserHoc(RegistrationPage)} />
-          <Route exact path="/payment" component={PrivateHoc(Payment)} />
-          <Route exact path="/startContest" component={PrivateHoc(StartContestPage)} />
+          <Route exact path="/pricing" component={PricingPage}/>
+          <Route exact path="/login" component={WithNotPrivate(LoginPage)} />
+          <Route exact path="/registration" component={WithNotPrivate(RegistrationPage)} />
+          <Route exact path="/payment" component={WithPrivate(Payment)} />
+          <Route exact path="/startContest" component={WithPrivate(StartContestPage)} />
           <Route
             exact
             path="/startContest/nameContest"
