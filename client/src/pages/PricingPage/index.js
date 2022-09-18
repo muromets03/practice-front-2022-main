@@ -1,17 +1,16 @@
 import React from 'react';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
-import PricingPackages from '../../components/PricingPackages';
+import PricePackage from '../../components/PricePackage';
 
-const PricingPage= () => {
+const PricePage= () => {
     return (
         <>
             <Header/>
-
-            <PricingPackages/>
+            <PricePackage/>
             <Footer/>
         </>
     );
 }
 
-export default PricingPage;
+export default PricePage;

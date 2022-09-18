@@ -9,6 +9,7 @@ import styles from './Home.module.sass';
 import carouselConstants from '../../carouselConstants';
 import Spinner from '../../components/Spinner/Spinner';
 import WhySquadHelp from '../../components/HomeComponent/WhySquadHelp';
+import Managed from '../../components/HomeComponent/Managed';
 
 const Home = (props) => {
   const [index, setIndex] = useState(0);
@@ -216,6 +217,7 @@ const Home = (props) => {
               />
             </div>
           </div>
+          <Managed/>
           <Footer />
         </>
       )}
